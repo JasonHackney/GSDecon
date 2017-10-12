@@ -1,0 +1,78 @@
+importClassesFrom(methods,
+                  ANY,
+                  character,
+                  integer,
+                  list,
+                  logical,
+                  numeric)
+
+importClassesFrom(GSEABase, 
+    GeneSetCollection, 
+    CollectionIdType, 
+    CollectionType)
+    
+importMethodsFrom(GSEABase, 
+    GeneSetCollection, 
+    "collectionType<-",
+    mapIdentifiers,
+    setName,
+    geneIdType,
+    collectionType,
+    creationDate,
+    geneIds,
+    "geneIds<-",
+    incidence)
+
+importMethodsFrom(Biobase, 
+    description, 
+    "description<-")
+
+importMethodsFrom(BiocGenerics,
+    estimateSizeFactors)
+
+importClassesFrom(DESeq,
+    CountDataSet)
+
+importMethodsFrom(DESeq,
+    counts)
+
+importClassesFrom(DESeq2,
+    DESeqDataSet)
+
+importMethodsFrom(DESeq2,
+    counts)
+
+importClassesFrom(edgeR,
+    DGEList)
+
+importMethodsFrom(SummarizedExperiment,
+    colData)
+
+importFrom(genefilter, rowSds)
+importFrom(fastICA, fastICA)
+importFrom(NMF, nmf, .coef)
+importFrom(digest, digest)
+importFrom(annotate, getAnnMap)
+importFrom(GSEABase, EntrezIdentifier, AnnotationIdentifier)
+
+import(AnnotationDbi)
+importFrom(limma, lmFit, voom)
+importFrom(edgeR, DGEList, calcNormFactors)
+importFrom(rngtools, getRNG) # For NMF
+import(pkgmaker) # Also for NMF
+
+exportClasses(DeconCollection, DeconGeneSetCollection, DeconResults)
+exportMethods(GeneSetCollection, length, description, getIncidenceMatrix,
+    decon, "description<-", "collectionType<-")
+
+export(
+    DeconCollection,
+    getIncidenceMatrix,
+    DeconGeneSetCollection,
+    deconComponents,
+    pvalues,
+    pvalueCutoff,
+    "pvalueCutoff<-",
+    nComp,
+    eigengenes
+)
