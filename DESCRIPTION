@@ -1,11 +1,15 @@
 Package: GSDecon
 Title: Deconvolution of cellular proportions in expression data
-Version: 2.4.39
+Version: 2.4.40
 Maintainer: Jason A. Hackney <hackney.jason@gene.com>
 Author: Jason A. Hackney
 Description: Gene set-based methods for analyzing cellular composition of mixed 
-    samples. We use summarization of gene sets into a per-sample score to 
-    characterize heterogeneity across a set of samples.
+    samples. We summarize expression values from gene sets into a per-sample 
+    score, called an eigengene. Eigengenes can be used as covariates in linear 
+    modelling, as surrogate variables for differences in cellularity between 
+    samples. Alternatively, the eigegenes can be used as the unit of analysis, 
+    potentially reducing the burden of multiple testing. The package includes a 
+    set of cell- and tissue-specific gene sets. 
 Imports:Biobase, BiocGenerics, AnnotationDbi, limma, methods, genefilter, 
     fastICA, DESeq, DESeq2, edgeR, SummarizedExperiment, digest, annotate
 Depends: GSEABase, pkgmaker, rngtools, NMF
