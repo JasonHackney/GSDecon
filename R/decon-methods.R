@@ -270,6 +270,29 @@ Check that the annotations are the same between your gene sets and expression da
 )
 
 setMethod("decon",
+    signature(object = "EList", model = "NULL", geneSets = "matrix"),
+    definition = function(object, model = NULL, geneSets, doPerm = TRUE, nPerm = 249,
+        pvalueCutoff = 0.01, nComp = 1, trim = FALSE, seed = NULL)
+    {
+        if(sum(geneSets) == 0){
+            stop("Gene sets do not have any features in common with expression data. 
+Check that the annotations are the same between your gene sets and expression data.")
+        }
+        rsds <- apply(object$E, 1, sd, na.rm=TRUE)
+        if(any(rsds == 0)){
+            stop("Genes with zero variance in the input dataset. Please remove these and try again.")
+        }
+        
+        ## If no model matrix is present, use the design from the EList
+        model <- object$design
+        res <- deconValuesAndComponents(object, model, geneSets, 
+            doPerm = doPerm, nPerm = nPerm, pvalueCutoff = pvalueCutoff, 
+            nComp = nComp, trim = trim, seed = seed)
+    }
+)
+
+
+setMethod("decon",
     signature(object = "EList", model = "matrix", geneSets = "matrix"),
     definition = function(object, model = NULL, geneSets, doPerm = TRUE, nPerm = 249,
         pvalueCutoff = 0.01, nComp = 1, trim = FALSE, seed = NULL)
