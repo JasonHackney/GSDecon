@@ -97,7 +97,7 @@ We'll start with a data set from Shen-Orr, \textit{et al.}, where known quantiti
 <<getRatExpt, eval = TRUE, echo = TRUE>>=
 library(GEOquery)
 library(genefilter)
-GSE19830 <- getGEO("GSE19830")[[1]]
+GSE19830 <- suppressMessages(getGEO("GSE19830")[[1]])
 annotation(GSE19830) <- "rat2302"
 GSE19830 <- featureFilter(GSE19830)
 
@@ -124,7 +124,7 @@ decon.ensg.gsc <- decon.ensg.gsc[names(decon.ensg.gsc) %in%
         c('Brain', 'Liver', 'Lung')]
 all.ensgs <- unique(unlist(geneIds(decon.ensg.gsc)))
 
-mart <- useMart("ENSEMBL_MART_ENSEMBL")
+mart <- useMart("ENSEMBL_MART_ENSEMBL", host="uswest.ensembl.org")
 mart <- useDataset("hsapiens_gene_ensembl", mart=mart)
 ratOrthologs <- getBM(mart = mart,
     attributes=c("ensembl_gene_id", "rnorvegicus_homolog_ensembl_gene"),
@@ -203,7 +203,7 @@ print(xyplot(deconVals$value ~ tissueFracDF$value * 100 | tissueFracDF$Var2,
 A second contrived data set we can work with was published along with an alternative deconvolution algorithm \cite{Abbas2009}. This data is from an experiment in which four cell lines from hematopoietic cancers were mixed in known proportions. The cell lines represent three major cell types: B cells (Raji and IM-9 cells), T cells (Jurkat), and monocytes (THP-1). The analysis of this data set is similar to the previous one. We start by loading the \verb@ExpressionSet@ and making our factors of interest. The data from GEO in this case is normalized using the MAS5 algorithm, so we'll have to log-transform the data before running the \verb@decon@ algorithm.
 
 <<TBM data>>=
-GSE11058 <- getGEO("GSE11058")[[1]]
+GSE11058 <- suppressMessages(getGEO("GSE11058")[[1]])
 exprs(GSE11058) <- log2(exprs(GSE11058))
 annotation(GSE11058) <- "hgu133plus2"
 GSE11058 <- featureFilter(GSE11058)
