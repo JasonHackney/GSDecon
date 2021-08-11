@@ -148,41 +148,10 @@ Check that the annotations are the same between your gene sets and expression da
 )
 
 
-## Count based methods for CountDataSet, DESeqDataSet and DGEList. 
+## Count based methods for DESeqDataSet and DGEList. 
 ## Use voom to get variance stabilized data, then fit a model using limma to 
 ## get the residuals. The variance stabilized data will also be used for 
 ## calculating the surrogate variables
-
-setMethod("decon",
-    signature(object = "CountDataSet", model = "missing", 
-        geneSets = "matrix"),
-    definition = function(object, model = NULL, geneSets, doPerm = TRUE, nPerm = 249,
-        pvalueCutoff = 0.01, nComp = 1, trim = FALSE, seed = NULL, ...)
-    {
-        ## Need to find the design of the CountDataSet
-        ## If missing, assume just using conditions from the object
-        mm <- model.matrix(~condition, pData(object))
-        res <- decon(object, mm, geneSets, 
-            doPerm = doPerm, nPerm = nPerm, pvalueCutoff = pvalueCutoff, 
-            nComp = nComp, trim = trim, seed = seed, ...)
-        res
-    }
-)
-
-setMethod("decon",
-    signature(object = "CountDataSet", model = "matrix", 
-        geneSets = "matrix"),
-    definition = function(object, model = NULL, geneSets, doPerm = TRUE, nPerm = 249,
-        pvalueCutoff = 0.01, nComp = 1, trim = FALSE, seed = NULL, ...)
-    {
-        ## Just use the model.matrix as-is
-        dge <- DGEList(counts(object))
-        res <- decon(dge, model, geneSets, 
-            doPerm = doPerm, nPerm = nPerm, pvalueCutoff = pvalueCutoff, 
-            nComp = nComp, trim = trim, seed = seed, ...)
-        res
-    }
-)
 
 setMethod("decon",
     signature(object = "DESeqDataSet", model = "missing", 

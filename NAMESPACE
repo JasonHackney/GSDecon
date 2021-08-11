@@ -30,12 +30,6 @@ importMethodsFrom(Biobase,
 importMethodsFrom(BiocGenerics,
     estimateSizeFactors)
 
-importClassesFrom(DESeq,
-    CountDataSet)
-
-importMethodsFrom(DESeq,
-    counts)
-
 importClassesFrom(DESeq2,
     DESeqDataSet)
 

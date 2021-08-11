@@ -37,7 +37,7 @@ setGeneric("deconComponents",
         
                     ## Use ICA to compute a factorization of the 
                     ## expression matrix
-                    ica.res <- fastICA(object, nComp = length(nComp), 
+                    ica.res <- fastICA(object, n.comp = length(nComp), 
                         method = "C")
                     # signs <- vapply(colSums(ica.res$S > 0)/nrow(ica.res$S), 
                     #     function(x) ifelse(x > 0.5, 1, -1), numeric(1))

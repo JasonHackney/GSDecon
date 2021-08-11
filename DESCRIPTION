@@ -1,6 +1,6 @@
 Package: GSDecon
 Title: Deconvolution of cellular proportions in expression data
-Version: 2.4.41
+Version: 2.4.42
 Maintainer: Jason A. Hackney <hackney.jason@gene.com>
 Author: Jason A. Hackney
 Description: Gene set-based methods for analyzing cellular composition of mixed 
@@ -11,10 +11,10 @@ Description: Gene set-based methods for analyzing cellular composition of mixed
     potentially reducing the burden of multiple testing. The package includes a 
     set of cell- and tissue-specific gene sets. 
 Imports:Biobase, BiocGenerics, AnnotationDbi, limma, methods, genefilter, 
-    fastICA, DESeq, DESeq2, edgeR, SummarizedExperiment, digest, annotate
+    fastICA, DESeq2, edgeR, SummarizedExperiment, digest, annotate
 Depends: GSEABase, pkgmaker, rngtools, NMF
 Suggests: grid, org.Hs.eg.db, biomaRt, affy, isva, lattice, 
-    sva, xtable, latticeExtra, reshape2, hom.Hs.inp.db, org.Rn.eg.db,
+    sva, xtable, latticeExtra, reshape2, org.Rn.eg.db,
     rat2302.db, hgu133plus2.db, GEOquery
 License: Artistic-2.0
 Type: Package
