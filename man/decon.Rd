@@ -13,6 +13,7 @@
 \alias{decon,DGEList,matrix,matrix-method}
 \alias{decon,EList,matrix,matrix-method}
 \alias{decon,EList,missing,matrix-method}
+\alias{decon,EList,NULL,matrix-method}
 \alias{decon,ExpressionSet,matrix,matrix-method}
 \alias{decon,ExpressionSet,missing,matrix-method}
 \alias{decon,ExpressionSet,NULL,matrix-method}

@@ -10,7 +10,7 @@ test_2IncidenceMatrices <- function()
     deconGSC <- DeconGeneSetCollection()
     
     incMat1 <- incidence(deconGSC)
-    checkTrue(class(incMat1) == "matrix")
+    checkTrue(class(incMat1)[1] == "matrix")
     checkTrue(nrow(incMat1) == 30)
     checkTrue(ncol(incMat1) == 1506)
     
@@ -20,7 +20,7 @@ test_2IncidenceMatrices <- function()
         
     incMat2 <- incidence(deconGSC, 
         features = fts)
-    checkTrue(class(incMat2) == "matrix")
+    checkTrue(class(incMat2)[1] == "matrix")
     checkTrue(nrow(incMat2) == 30)
     checkTrue(ncol(incMat2) == 10)
     checkTrue(all.equal(colnames(incMat2), fts))
@@ -28,7 +28,7 @@ test_2IncidenceMatrices <- function()
     GSC <- GeneSetCollection(unlist(deconGSC))
     incMat3 <- getIncidenceMatrix(GSC, 
         features = fts)
-    checkTrue(class(incMat3) == "matrix")
+    checkTrue(class(incMat3)[1] == "matrix")
     checkTrue(nrow(incMat3) == 30)
     checkTrue(ncol(incMat3) == 10)
     checkTrue(all.equal(colnames(incMat3), fts))
