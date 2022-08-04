@@ -305,7 +305,7 @@ deconValuesAndComponents <- function(object, model, geneSets, doPerm = TRUE,
     
     method = match.arg(method, c("SVD", "NMF", "ICA", "MDS"))
     
-    if(class(object) == "EList"){
+    if(is(object, "EList")){
         rsds <- rowSds(object$E)
     } else {
         rsds <- rowSds(object)

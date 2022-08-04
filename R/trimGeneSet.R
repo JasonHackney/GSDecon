@@ -9,9 +9,9 @@ trimGeneSet <- function(geneSet, dataSet, cor.cutoff = 0.1)
         stop("wrong input for correlation") 
     }
     
-    if(class(dataSet) == "ExpressionSet"){
+    if(is(dataSet, "ExpressionSet")){
         dataSet <- exprs(dataSet)
-    } else if( class(dataSet) == "EList" ){
+    } else if( is(dataSet, "EList") ){
         dataSet <- dataSet$E
     }
         

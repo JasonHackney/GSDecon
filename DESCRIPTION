@@ -1,6 +1,6 @@
 Package: GSDecon
 Title: Deconvolution of cellular proportions in expression data
-Version: 2.4.43
+Version: 2.4.44
 Maintainer: Jason A. Hackney <hackney.jason@gene.com>
 Author: Jason A. Hackney
 Description: Gene set-based methods for analyzing cellular composition of mixed 
